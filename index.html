@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>História da Computação</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="cenario" aria-hidden="true">
+    <div class="faixa">
+      <div class="tile"></div>
+      <div class="tile espelhado"></div>
+      <div class="tile"></div>
+      <div class="tile espelhado"></div>
+    </div>
+  </div>
+
+  <main id="tela-inicial" class="tela tela-inicial">
+    <header class="logo">
+      <h1 class="logo__titulo">
+        <span class="logo__linha logo__linha--grande">HISTÓRIA DA</span>
+        <span class="logo__linha logo__linha--grande">COMPUTAÇÃO</span>
+      </h1>
+      <p class="logo__subtitulo">- Uma aventura pelo tempo -</p>
+    </header>
+
+    <button id="btn-jogar" class="btn-pixel" type="button">▶ JOGAR</button>
+  </main>
+
+  <section id="tela-fases" class="tela tela-fases" hidden aria-labelledby="fases-titulo" tabindex="-1">
+    <div class="controles-casa">
+      <button id="btn-casa" class="btn-pixel btn-som btn-casa" type="button"
+              aria-label="Voltar para a tela inicial" title="Voltar para a tela inicial">
+        <svg class="icone" viewBox="0 0 16 16" shape-rendering="crispEdges"
+             aria-hidden="true" focusable="false">
+          <g fill="currentColor">
+            <path d="M7 1h2v1h-2z M6 2h4v1h-4z M5 3h6v1h-6z M4 4h8v1h-8z M3 5h10v1h-10z
+                     M2 6h12v1h-12z M1 7h14v1h-14z
+                     M12 2h2v3h-2z
+                     M3 8h10v7h-10z"/>
+          </g>
+          <path d="M7 10h2v5h-2z" fill="#4a2285"/>
+          <path d="M4 9h2v2h-2z M10 9h2v2h-2z" fill="#f6d77b"/>
+        </svg>
+      </button>
+
+      <button id="btn-album" class="btn-pixel btn-som btn-album" type="button"
+              aria-label="Abrir o livro" title="Abrir o livro">
+        <svg class="icone" viewBox="0 0 16 16" shape-rendering="crispEdges"
+             aria-hidden="true" focusable="false">
+          <path d="M1 13h14v2h-14z" fill="#4a2285"/>
+          <g fill="currentColor">
+            <path d="M1 3h6v10h-6z M9 3h6v10h-6z"/>
+          </g>
+          <path d="M7 4h2v10h-2z" fill="#4a2285"/>
+          <path d="M2 5h4v1h-4z M2 7h4v1h-4z M2 9h3v1h-3z M10 5h4v1h-4z M10 7h4v1h-4z" fill="#9c5ee0"/>
+          <path d="M10 9h2v2h-2z" fill="#f6d77b"/>
+        </svg>
+      </button>
+    </div>
+
+    <header class="logo logo--fases">
+      <h2 id="fases-titulo" class="logo__titulo">
+        <span class="logo__linha logo__linha--fases">MAPA DE FASES</span>
+      </h2>
+      <p class="logo__subtitulo">- Escolha seu desafio -</p>
+    </header>
+
+    <div class="mapa-fases">
+      <div class="fase">
+        <button id="btn-fase-1" class="btn-pixel btn-fase" type="button" data-fase="1" aria-label="Fase 1: Linha do tempo">
+          <svg class="icone" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false">
+            <path d="M1 8h14v2h-14z" fill="#efe2ff"/>
+            <path d="M2 7h3v4h-3z M7 7h3v4h-3z M12 7h3v4h-3z" fill="#f6d77b"/>
+            <path d="M3 4h1v3h-1z M8 11h1v3h-1z M13 4h1v3h-1z" fill="#ffffff"/>
+            <path d="M2 2h3v2h-3z M7 14h3v2h-3z M12 2h3v2h-3z" fill="#ff9bbd"/>
+          </svg>
+        </button>
+        <span class="fase__numero">FASE 1</span>
+        <span class="fase__nome">LINHA DO TEMPO</span>
+      </div>
+
+      <div class="caminho" aria-hidden="true"></div>
+
+      <div class="fase">
+        <button id="btn-fase-2" class="btn-pixel btn-fase" type="button" data-fase="2" aria-label="Fase 2: Quiz">
+          <svg class="icone" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false">
+            <g fill="#f6d77b">
+              <path d="M5 2h6v2h-6z M4 4h3v2h-3z M9 4h3v2h-3z M9 6h3v2h-3z
+                       M7 8h3v2h-3z M7 10h2v2h-2z M7 13h2v2h-2z"/>
+            </g>
+          </svg>
+        </button>
+        <span class="fase__numero">FASE 2</span>
+        <span class="fase__nome">QUIZ</span>
+      </div>
+
+      <div class="caminho" aria-hidden="true"></div>
+
+      <div class="fase">
+        <button id="btn-fase-3" class="btn-pixel btn-fase" type="button" data-fase="3" aria-label="Fase 3: Jogo da memória">
+          <svg class="icone" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false">
+            <path d="M1 4h7v10h-7z" fill="#c9a6f5"/>
+            <path d="M3 6h3v6h-3z" fill="#4a2285"/>
+            <path d="M4 8h1v2h-1z" fill="#f6d77b"/>
+            <path d="M8 2h7v10h-7z" fill="#efe2ff"/>
+            <path d="M9 5h2v1h-2z M12 5h2v1h-2z M9 6h5v2h-5z M10 8h3v1h-3z M11 9h1v1h-1z" fill="#ff6f9f"/>
+          </svg>
+        </button>
+        <span class="fase__numero">FASE 3</span>
+        <span class="fase__nome">JOGO DA MEMÓRIA</span>
+      </div>
+    </div>
+
+    <p id="aviso-fase" class="aviso-fase" role="status" aria-live="polite"></p>
+  </section>
+
+  <section id="tela-fase1-intro" class="tela tela-jogo" hidden aria-labelledby="intro1-titulo" tabindex="-1">
+    <div class="painel-pixel painel-vitoria painel-intro">
+      <h2 id="intro1-titulo" class="painel-pixel__titulo">FASE 1: LINHA DO TEMPO</h2>
+      <p class="painel-pixel__subtitulo">COMO JOGAR</p>
+      <ol class="passos-intro">
+        <li><span>1</span> Você recebe cartas embaralhadas de máquinas importantes da História da Computação.</li>
+        <li><span>2</span> Arraste cada carta (ou toque nela e depois na posição) para o lugar certo da linha do tempo.</li>
+        <li><span>3</span> A ordem vai da máquina mais ANTIGA à mais NOVA.</li>
+        <li><span>4</span> Acertou o lugar? A carta é desbloqueada e mostra o ano e uma curiosidade!</li>
+      </ol>
+      <div class="acoes-quiz">
+        <button id="btn-intro1-voltar" class="btn-pixel btn-pixel--pequeno" type="button">◀ MAPA</button>
+        <button id="btn-intro1-comecar" class="btn-pixel btn-pixel--pequeno" type="button">COMEÇAR ▶</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="tela-fase1" class="tela tela-jogo" hidden aria-labelledby="linha-titulo" tabindex="-1">
+    <div class="painel-pixel painel-linha">
+      <div class="quiz-topo">
+        <h2 id="linha-titulo" class="painel-pixel__titulo">LINHA DO TEMPO</h2>
+        <div class="colecao-resumo" aria-live="polite">
+          <span>CARTAS</span>
+          <strong id="contador-cartas">0 / 8</strong>
+        </div>
+      </div>
+      <p class="dica-linha"><span>◀ MAIS ANTIGA</span><span>MAIS NOVA ▶</span></p>
+      <div id="linha-slots" class="linha-slots"></div>
+      <div id="bandeja" class="bandeja" aria-label="Cartas para ordenar"></div>
+      <p id="feedback-linha" class="feedback-resposta" role="status" aria-live="polite"></p>
+      <div class="acoes-quiz">
+        <button id="btn-linha-voltar" class="btn-pixel btn-pixel--pequeno" type="button">◀ MAPA</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="tela-fase1-final" class="tela tela-jogo" hidden aria-labelledby="final1-titulo" tabindex="-1">
+    <div class="painel-pixel painel-vitoria">
+      <h2 id="final1-titulo" class="painel-pixel__titulo">VOCÊ VENCEU!</h2>
+      <p class="painel-pixel__texto">Você desbloqueou todas as cartas da Linha do Tempo da Computação!</p>
+      <div id="colecao-linha" class="colecao-final colecao-linha"></div>
+      <div class="acoes-quiz acoes-centro">
+        <button id="btn-linha-final-mapa" class="btn-pixel btn-pixel--pequeno" type="button">◀ MAPA</button>
+        <button id="btn-linha-novamente" class="btn-pixel btn-pixel--pequeno" type="button">JOGAR NOVAMENTE</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="tela-fase2-intro" class="tela tela-jogo" hidden aria-labelledby="intro2-titulo" tabindex="-1">
+    <div class="painel-pixel painel-vitoria painel-intro">
+      <h2 id="intro2-titulo" class="painel-pixel__titulo">FASE 2: QUIZ</h2>
+      <p class="painel-pixel__subtitulo">COMO JOGAR</p>
+      <ol class="passos-intro">
+        <li><span>1</span> Responda perguntas sobre a História da Computação.</li>
+        <li><span>2</span> Tente acertar o máximo de perguntas possível!</li>
+        <li><span>3</span> A cada 2 perguntas acertadas, você ganha uma figurinha de uma personalidade da História da Computação.</li>
+        <li><span>4</span> Reúna as 10 figurinhas para vencer o desafio!</li>
+      </ol>
+      <div class="acoes-quiz">
+        <button id="btn-intro2-voltar" class="btn-pixel btn-pixel--pequeno" type="button">◀ MAPA</button>
+        <button id="btn-intro2-comecar" class="btn-pixel btn-pixel--pequeno" type="button">COMEÇAR ▶</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="tela-fase3-intro" class="tela tela-jogo" hidden aria-labelledby="intro3-titulo" tabindex="-1">
+    <div class="painel-pixel painel-vitoria painel-intro">
+      <h2 id="intro3-titulo" class="painel-pixel__titulo">FASE 3: JOGO DA MEMÓRIA</h2>
+      <p class="painel-pixel__subtitulo">COMO JOGAR</p>
+      <ol class="passos-intro">
+        <li><span>1</span> As cartas começam viradas para baixo. Vire duas cartas por vez.</li>
+        <li><span>2</span> Cada linguagem de programação tem um par: a carta do LOGO e NOME e a carta do CÓDIGO e ANO de criação.</li>
+        <li><span>3</span> Achou o par? A linguagem aparece em destaque e a figurinha completa (logo, nome e ano) é desbloqueada no álbum!</li>
+        <li><span>4</span> Errou? As cartas viram de volta. Lembre onde elas estão e encontre os 8 pares!</li>
+      </ol>
+      <div class="acoes-quiz">
+        <button id="btn-intro3-voltar" class="btn-pixel btn-pixel--pequeno" type="button">◀ MAPA</button>
+        <button id="btn-intro3-comecar" class="btn-pixel btn-pixel--pequeno" type="button">COMEÇAR ▶</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="tela-fase3" class="tela tela-jogo" hidden aria-labelledby="memoria-titulo" tabindex="-1">
+    <div class="painel-pixel painel-memoria">
+      <div class="quiz-topo">
+        <h2 id="memoria-titulo" class="painel-pixel__titulo">JOGO DA MEMÓRIA</h2>
+        <div class="colecao-resumo" aria-live="polite">
+          <span>PARES</span>
+          <strong id="contador-pares">0 / 8</strong>
+        </div>
+      </div>
+      <div id="tabuleiro" class="tabuleiro" aria-label="Cartas do jogo da memória"></div>
+      <p id="feedback-memoria" class="feedback-resposta" role="status" aria-live="polite"></p>
+      <div class="acoes-quiz">
+        <button id="btn-memoria-voltar" class="btn-pixel btn-pixel--pequeno" type="button">◀ MAPA</button>
+      </div>
+    </div>
+
+    <div id="destaque-memoria" class="destaque-memoria" hidden role="dialog" aria-modal="true" aria-labelledby="destaque-titulo">
+      <div class="painel-pixel destaque-painel">
+        <p id="destaque-titulo" class="recompensa-titulo">PAR ENCONTRADO! FIGURINHA DESBLOQUEADA!</p>
+        <img id="destaque-img" class="destaque-img" src="" alt="">
+        <p id="destaque-texto" class="painel-pixel__texto"></p>
+        <button id="btn-destaque-ok" class="btn-pixel btn-pixel--pequeno" type="button">CONTINUAR ▶</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="tela-fase3-final" class="tela tela-jogo" hidden aria-labelledby="final3-titulo" tabindex="-1">
+    <div class="painel-pixel painel-vitoria">
+      <h2 id="final3-titulo" class="painel-pixel__titulo">VOCÊ VENCEU!</h2>
+      <p class="painel-pixel__texto">Você encontrou todos os pares e completou o álbum das linguagens de programação!</p>
+      <div id="colecao-memoria" class="colecao-final colecao-memoria"></div>
+      <div class="acoes-quiz acoes-centro">
+        <button id="btn-memoria-final-mapa" class="btn-pixel btn-pixel--pequeno" type="button">◀ MAPA</button>
+        <button id="btn-memoria-album" class="btn-pixel btn-pixel--pequeno" type="button">VER ÁLBUM</button>
+        <button id="btn-memoria-novamente" class="btn-pixel btn-pixel--pequeno" type="button">JOGAR NOVAMENTE</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="tela-album" class="tela tela-jogo tela-album" hidden aria-labelledby="album-titulo" tabindex="-1">
+    <header class="logo logo--album">
+      <h2 id="album-titulo" class="logo__titulo">
+        <span class="logo__linha logo__linha--album">HISTÓRIA DA COMPUTAÇÃO</span>
+      </h2>
+    </header>
+
+    <div id="livro" class="livro" aria-live="polite"></div>
+
+    <div class="album-nav">
+      <button id="btn-album-voltar" class="btn-pixel btn-pixel--pequeno" type="button">◀ MAPA</button>
+      <button id="btn-pag-ant" class="btn-pixel btn-pixel--pequeno" type="button" aria-label="Página anterior">◀</button>
+      <span id="album-indicador" class="album-indicador">1 / 3</span>
+      <button id="btn-pag-prox" class="btn-pixel btn-pixel--pequeno" type="button" aria-label="Próxima página">▶</button>
+    </div>
+      <div id="album-detalhe" class="album-detalhe" hidden role="dialog" aria-modal="true" aria-labelledby="detalhe-nome">
+      <div class="painel-pixel detalhe-painel">
+        <div class="detalhe-corpo">
+          <img id="detalhe-img" class="detalhe-img" src="" alt="">
+          <div class="detalhe-texto">
+            <h3 id="detalhe-nome" class="detalhe-nome"></h3>
+            <p id="detalhe-meta" class="detalhe-meta"></p>
+            <p id="detalhe-historia" class="painel-pixel__texto detalhe-historia"></p>
+            <p class="detalhe-rotulo">INFORMAÇÕES IMPORTANTES</p>
+            <ul id="detalhe-lista" class="detalhe-lista"></ul>
+          </div>
+        </div>
+        <button id="btn-detalhe-fechar" class="btn-pixel btn-pixel--pequeno" type="button">FECHAR</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="tela-jogo" class="tela tela-jogo" hidden aria-labelledby="jogo-titulo" tabindex="-1">
+    <div class="painel-pixel painel-quiz">
+      <div class="quiz-topo">
+        <h2 id="jogo-titulo" class="painel-pixel__titulo">DESAFIO DA COMPUTAÇÃO</h2>
+        <div class="colecao-resumo" aria-live="polite">
+          <span>FIGURINHAS</span>
+          <strong id="contador-figurinhas">0 / 10</strong>
+        </div>
+      </div>
+      <div class="progresso-quiz" aria-label="Progresso para a próxima figurinha">
+        <div id="barra-progresso"></div>
+      </div>
+      <p id="contador-acertos" class="contador-acertos">Acertos: 0 / 2 para a próxima figurinha</p>
+      <p id="numero-pergunta" class="numero-pergunta">PERGUNTA 1</p>
+      <h3 id="texto-pergunta" class="texto-pergunta">Carregando pergunta...</h3>
+      <div id="opcoes-resposta" class="opcoes-resposta"></div>
+      <p id="feedback-resposta" class="feedback-resposta" role="status" aria-live="polite"></p>
+      
+    <div id="recompensa" class="recompensa" hidden>
+      <p class="recompensa-titulo">NOVA FIGURINHA DESBLOQUEADA!</p>
+      <img id="figurinha" src="" alt="Personagem">
+      <p id="nome-figurinha"></p>
+    </div>
+
+      <div class="acoes-quiz">
+        <button id="btn-voltar" class="btn-pixel btn-pixel--pequeno" type="button">◀ MENU</button>
+        <button id="btn-avancar" class="btn-pixel btn-pixel--pequeno" type="button" disabled>AVANÇAR ▶</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="tela-vitoria" class="tela tela-jogo" hidden aria-labelledby="vitoria-titulo" tabindex="-1">
+    <div class="painel-pixel painel-vitoria">
+      <h2 id="vitoria-titulo" class="painel-pixel__titulo">VOCÊ VENCEU!</h2>
+      <p class="painel-pixel__texto">Você reuniu as 10 figurinhas e dominou a História da Computação!</p>
+      <div id="colecao-final" class="colecao-final"></div>
+      <button id="btn-jogar-novamente" class="btn-pixel btn-pixel--pequeno" type="button">JOGAR NOVAMENTE</button>
+      <button id="btn-menu-final" class="btn-pixel btn-pixel--pequeno" type="button">◀ MENU</button>
+    </div>
+  </section>
+
+<div class="controles-som">
+
+  <button id="btn-musica" class="btn-pixel btn-som" type="button"
+          aria-pressed="true" aria-label="Música ligada. Clique para desligar"
+          title="Música ligada. Clique para desligar">
+    <svg class="icone" viewBox="0 0 16 16" shape-rendering="crispEdges"
+         aria-hidden="true" focusable="false">
+      <g fill="currentColor">
+        <path d="M5 3h8v2h-8z M5 5h1v7h-1z M12 5h1v7h-1z
+                 M3 11h3v1h-3z M2 12h4v2h-4z M3 14h2v1h-2z
+                 M10 11h3v1h-3z M9 12h4v2h-4z M10 14h2v1h-2z"/>
+      </g>
+
+      <g class="icone__off" fill="#ff9bbd">
+        <path d="M2 2h2v2h-2z M3 3h2v2h-2z M4 4h2v2h-2z M5 5h2v2h-2z M6 6h2v2h-2z M7 7h2v2h-2z
+                 M8 8h2v2h-2z M9 9h2v2h-2z M10 10h2v2h-2z M11 11h2v2h-2z M12 12h2v2h-2z M13 13h2v2h-2z"/>
+      </g>
+    </svg>
+  </button>
+
+  <button id="btn-som" class="btn-pixel btn-som" type="button"
+          aria-pressed="true" aria-label="Efeitos sonoros ligados. Clique para desligar"
+          title="Efeitos sonoros ligados. Clique para desligar">
+    <svg class="icone" viewBox="0 0 16 16" shape-rendering="crispEdges"
+         aria-hidden="true" focusable="false">
+      <g fill="currentColor">
+        <path d="M2 6h3v4h-3z M5 5h1v6h-1z M6 4h1v8h-1z M7 3h1v10h-1z"/>
+      </g>
+     
+      <g class="icone__on" fill="currentColor">
+        <path d="M9 6h1v1h-1z M10 7h1v2h-1z M9 9h1v1h-1z
+                 M11 3h1v1h-1z M12 4h1v1h-1z M13 5h1v6h-1z M12 11h1v1h-1z M11 12h1v1h-1z"/>
+      </g>
+
+      <g class="icone__off" fill="#ff9bbd">
+        <path d="M9 4h2v2h-2z M13 4h2v2h-2z M11 6h2v2h-2z M9 8h2v2h-2z M13 8h2v2h-2z"/>
+      </g>
+    </svg>
+  </button>
+
+</div>
+
+  <script src="script.js"></script>
+  <script src="fase1.js"></script>
+  <script src="fase3.js"></script>
+  <script src="album-info.js"></script>
+  <script src="album.js"></script>
+</body>
+</html>
