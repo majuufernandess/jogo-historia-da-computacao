@@ -1,7 +1,5 @@
 'use strict';
 
-/* ===== FASE 3: JOGO DA MEMÓRIA (linguagens de programação) ===== */
-
 const LINGUAGENS = [
   { id: 'fortran', nome: 'Fortran', ano: 1957 },
   { id: 'lisp',    nome: 'Lisp',    ano: 1958 },
@@ -27,14 +25,13 @@ const elDestaqueTxt  = document.getElementById('destaque-texto');
 const btnDestaqueOk  = document.getElementById('btn-destaque-ok');
 const elColecaoMem   = document.getElementById('colecao-memoria');
 
-/* verso das cartas */
 const VERSO_IMG = '<img src="png/memoria/verso.png" alt="" draggable="false">';
 
 function salvarFigurinhaMemoria(id) {
   try {
     const lista = JSON.parse(localStorage.getItem(CHAVE_FIG_MEMORIA) || '[]');
     if (!lista.includes(id)) { lista.push(id); localStorage.setItem(CHAVE_FIG_MEMORIA, JSON.stringify(lista)); }
-  } catch (e) { /* armazenamento indisponível: o jogo segue normalmente */ }
+  } catch (e) { }
 }
 
 let primeira = null;
@@ -42,7 +39,7 @@ let bloqueado = false;
 let paresAchados = 0;
 let ultimoPar = null;
 let timerMemorizar = null;
-const TEMPO_MEMORIZAR = 3000;   // frente das cartas visível no início (ms)
+const TEMPO_MEMORIZAR = 3000;
 
 function embaralharMem(lista) {
   const a = lista.slice();
@@ -79,7 +76,7 @@ function montarFase3() {
     elTabuleiro.appendChild(b);
   });
 
-  /* mostra a frente das cartas por 3 segundos (contados depois que a tela aparece) e então vira todas */
+
   timerMemorizar = setTimeout(() => {
     elTabuleiro.querySelectorAll('.mcarta').forEach(c => c.classList.remove('virada'));
     elFeedbackMem.textContent = 'Vire duas cartas e encontre o par!';
