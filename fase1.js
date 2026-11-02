@@ -1,6 +1,5 @@
 'use strict';
 
-/* ===== FASE 1: LINHA DO TEMPO ===== */
 
 const telaFase1Intro = document.getElementById('tela-fase1-intro');
 const telaFase1      = document.getElementById('tela-fase1');
@@ -11,7 +10,7 @@ const elContCartas   = document.getElementById('contador-cartas');
 const telaFase1Final = document.getElementById('tela-fase1-final');
 const elColecaoLinha = document.getElementById('colecao-linha');
 
-/* Já em ordem cronológica: a posição no vetor é o lugar certo na linha do tempo. */
+
 const CARTAS_LINHA = [
   { id: 'abaco',     nome: 'ÁBACO',            ano: 'c. 3000 a.C.', fato: 'Instrumento de cálculo com contas deslizantes.',
     arte: [['#f6d77b','M1 2h14v1h-14z M1 13h14v1h-14z M1 2h1v12h-1z M14 2h1v12h-1z'],['#efe2ff','M2 5h12v1h-12z M2 8h12v1h-12z M2 11h12v1h-12z'],['#ff9bbd','M3 4h2v2h-2z M5 4h2v2h-2z M7 4h2v2h-2z M12 4h2v2h-2z M3 7h2v2h-2z M10 7h2v2h-2z M12 7h2v2h-2z M3 10h2v2h-2z M5 10h2v2h-2z M10 10h2v2h-2z']] },
@@ -47,7 +46,7 @@ function salvarCarta(id) {
   try {
     const lista = JSON.parse(localStorage.getItem(CHAVE_CARTAS) || '[]');
     if (!lista.includes(id)) { lista.push(id); localStorage.setItem(CHAVE_CARTAS, JSON.stringify(lista)); }
-  } catch (e) { /* armazenamento indisponível: o jogo segue normalmente */ }
+  } catch (e) {  }
 }
 
 let selecionada = null;
@@ -138,7 +137,7 @@ function tentarColocar(carta, slot) {
   }
 }
 
-/* clique: seleciona a carta (ou posiciona a carta selecionada no slot tocado) */
+
 elLinhaBandeja.addEventListener('click', (e) => {
   const carta = e.target.closest('.carta');
   if (!carta) return;
@@ -158,7 +157,7 @@ elLinhaSlots.addEventListener('keydown', (e) => {
   }
 });
 
-/* arrastar com mouse ou dedo */
+
 elLinhaBandeja.addEventListener('pointerdown', (e) => {
   const carta = e.target.closest('.carta');
   if (!carta || arrasto || (e.pointerType === 'mouse' && e.button !== 0)) return;
@@ -224,7 +223,7 @@ function mostrarFinalFase1() {
   mostrarTela(telaFase1Final, document.getElementById('final1-titulo'));
 }
 
-/* navegação */
+
 function abrirIntroFase1() {
   mostrarTela(telaFase1Intro, document.getElementById('btn-intro1-comecar'));
 }
@@ -239,7 +238,7 @@ document.getElementById('btn-linha-voltar').addEventListener('click',   () => { 
 document.getElementById('btn-linha-novamente').addEventListener('click', () => { Som.tocar('iniciar'); comecarFase1(); });
 document.getElementById('btn-linha-final-mapa').addEventListener('click', () => { Som.tocar('voltar'); abrirMapa(); });
 
-/* ===== FASE 2: explicação antes do quiz ===== */
+
 const telaFase2Intro = document.getElementById('tela-fase2-intro');
 function abrirIntroFase2() {
   mostrarTela(telaFase2Intro, document.getElementById('btn-intro2-comecar'));
