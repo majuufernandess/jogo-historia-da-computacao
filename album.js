@@ -1,6 +1,5 @@
 'use strict';
 
-/* ===== ÁLBUM: 3 páginas com efeito de virar ===== */
 
 const telaAlbumEl   = document.getElementById('tela-album');
 const elLivro       = document.getElementById('livro');
@@ -16,15 +15,15 @@ const CHAVE_FASES = 'hc-fases-completas';
 
 function fasesCompletas() { return lerLista(CHAVE_FASES); }
 
-/* chamada quando o jogador termina uma fase: libera a página dela no álbum */
+
 function marcarFaseCompleta(n) {
   try {
     const l = fasesCompletas();
     if (!l.includes(n)) { l.push(n); localStorage.setItem(CHAVE_FASES, JSON.stringify(l)); }
-  } catch (e) { /* armazenamento indisponível */ }
+  } catch (e) { }
 }
 
-/* a página só mostra as figurinhas depois que a fase dela foi concluída */
+
 function paginasDoAlbum() {
   const feitas = fasesCompletas();
   return [
@@ -119,7 +118,7 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft') virarPagina(-1);
 });
 
-/* arrastar/deslizar para virar */
+
 let inicioToque = null;
 elLivro.addEventListener('pointerdown', (e) => { inicioToque = { x: e.clientX, y: e.clientY }; });
 elLivro.addEventListener('pointerup', (e) => {
@@ -131,7 +130,6 @@ elLivro.addEventListener('pointerup', (e) => {
 elLivro.addEventListener('pointercancel', () => { inicioToque = null; });
 
 
-/* ===== detalhes da figurinha ===== */
 const elDetalhe = document.getElementById('album-detalhe');
 const elDetImg  = document.getElementById('detalhe-img');
 let slotAberto = null;
