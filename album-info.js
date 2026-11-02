@@ -1,8 +1,8 @@
 'use strict';
 
-/* Textos do álbum: nome, linha de resumo, história e informações importantes de cada figurinha. */
+
 const INFO_ALBUM = {
-  /* ---------- MÁQUINAS ---------- */
+
   'm:abaco': {
     nome: 'Ábaco',
     meta: 'c. 3000 a.C. • Mesopotâmia (data aproximada)',
@@ -52,7 +52,7 @@ const INFO_ALBUM = {
     destaques: ['Popularizou a interface gráfica e o mouse', 'Lançado pela Apple em janeiro de 1984', 'Computador compacto, com tela integrada']
   },
 
-  /* ---------- PERSONALIDADES ---------- */
+ 
   'p:0': {
     nome: 'Ada Lovelace',
     meta: '1815–1852 • Matemática, Inglaterra',
@@ -114,7 +114,7 @@ const INFO_ALBUM = {
     destaques: ['Criou o kernel Linux em 1991', 'Software livre, com ajuda de muitas pessoas', 'Também criou o Git, em 2005']
   },
 
-  /* ---------- LINGUAGENS ---------- */
+
   'l:fortran': {
     nome: 'Fortran',
     meta: '1957 • John Backus e equipe da IBM',
